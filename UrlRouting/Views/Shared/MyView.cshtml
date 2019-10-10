@@ -1,0 +1,36 @@
+﻿
+@model Result
+@{
+    ViewData["Title"] = "MyView";
+}
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+
+
+
+
+
+<table class="table table-bordered table-striped table-sm">
+
+
+
+    <tr>
+        <td>Action</td>
+        <td>@Model.Action</td>
+
+    </tr>
+    @foreach (var key in Model.RoutData.Keys)
+    {
+        <tr>
+            <td>@key</td>
+            <td> @Model.RoutData[key]</td>
+
+        </tr>
+    }
+</table>

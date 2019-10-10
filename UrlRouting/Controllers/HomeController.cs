@@ -12,7 +12,14 @@ namespace UrlRouting.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+
+
+            return View("MyView", new Result() {
+
+                 Controller= "HomeController",
+                 Action ="Index"
+
+            });
         }
 
         public IActionResult Privacy()
