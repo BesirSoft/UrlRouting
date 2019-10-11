@@ -73,8 +73,8 @@ namespace UrlRouting
 
 
                 routes.MapRoute(
-               name: "",
-               template: "Catalog/{controller=Home}/{action=Index}/{id?}");
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
 
             });
         }

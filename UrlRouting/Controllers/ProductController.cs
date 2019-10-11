@@ -49,7 +49,20 @@ namespace UrlRouting.Controllers
         }
 
 
+        public IActionResult Details()
+        {
+            var result= new Result()
+            {
 
+                Controller = "ProductController",
+                Action = "DetaiLs"
+
+            };
+
+            result.RoutData["Id"]= RouteData.Values["id"];
+            return View("MyView", result);
+
+        }
 
     }
 }
