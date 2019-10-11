@@ -51,6 +51,8 @@ namespace UrlRouting.Controllers
 
         public IActionResult Details()
         {
+            //rou data alma yontemi2
+          var rout= RouteData.Values["id"]; ;
             var result= new Result()
             {
 
@@ -58,8 +60,8 @@ namespace UrlRouting.Controllers
                 Action = "DetaiLs"
 
             };
-
-            result.RoutData["Id"]= RouteData.Values["id"];
+            result.RoutData["Id"] = rout;
+          
             return View("MyView", result);
 
         }
