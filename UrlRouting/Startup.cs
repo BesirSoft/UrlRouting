@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -75,6 +77,29 @@ namespace UrlRouting
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+
+                routes.MapRoute(
+                   name: "default",
+                   template: "{controller=Home}/{action=Index}/{id?}",
+                   defaults:new {controller="Home",action="Index"},
+                   constraints:new
+                   {
+                       id=new CompositeRouteConstraint(
+                           
+                           new IRouteConstraint[]
+                           {
+
+                               new AlphaRouteConstraint(),
+                               new MinRouteConstraint(3)
+                           }  )
+                           
+                           
+                         
+
+                   }
+                   
+                   );
 
             });
         }

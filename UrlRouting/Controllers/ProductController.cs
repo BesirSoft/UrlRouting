@@ -7,6 +7,9 @@ using UrlRouting.Models;
 
 namespace UrlRouting.Controllers
 {
+
+
+    [Route("api/[action]/{id?}")]
     public class ProductController : Controller
     {
         public IActionResult Index()
