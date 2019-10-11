@@ -55,11 +55,27 @@ namespace UrlRouting
 
             app.UseMvc(routes =>
             {
+
+
+                routes.MapRoute(
+               name: "Shop1",
+               template: "shop/{action}",
+               defaults: new { controller = "Product"} );
+
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
-                    //defaults: new {action="Index"}
-                    );
+                    template: "a{controller=Home}/{action=Index}/{id?}" );
+                       
+                //defaults: new {action="Index"}
+                routes.MapRoute(
+                name: "Catalog",
+                template: "Catalog/{controller=Home}/{action=Index}/{id?}");
+
+
+                routes.MapRoute(
+               name: "",
+               template: "Catalog/{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }
